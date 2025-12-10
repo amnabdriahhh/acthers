@@ -32,6 +32,7 @@
     .btn-brown {
         background-color: #4E342E;
         color: white;
+        border: none;
     }
     .btn-brown:hover {
         background-color: #3E2723;
@@ -45,36 +46,35 @@
 
   <h2 class="text-center title mb-4">Register Account</h2>
 
-  <img src="images/logo.png" alt="acthers logo" class="logo-img">
+  <img src="images/logo.png" alt="Acthers Logo" class="logo-img">
 
   <!-- Alert Box -->
   <div id="alert-box"></div>
 
   <div class="row">
     <div class="col-md-5 mx-auto">
-
       <div class="register-box">
 
-        <form id="registerForm">
+        <form id="registerForm" novalidate>
 
           <div class="mb-3">
             <label class="form-label">Full Name</label>
-            <input type="text" id="fullname" class="form-control" placeholder="Enter full name">
+            <input type="text" id="fullname" class="form-control" placeholder="Enter full name" required>
           </div>
 
           <div class="mb-3">
             <label class="form-label">Email</label>
-            <input type="email" id="email" class="form-control" placeholder="Enter email (must include @)">
+            <input type="email" id="email" class="form-control" placeholder="Enter email" required>
           </div>
 
           <div class="mb-3">
             <label class="form-label">Username</label>
-            <input type="text" id="username" class="form-control" placeholder="Create username">
+            <input type="text" id="username" class="form-control" placeholder="Create username" required>
           </div>
 
-          <div class="mb-3">
+          <div class="mb-4">
             <label class="form-label">Password</label>
-            <input type="password" id="password" class="form-control" placeholder="Create password">
+            <input type="password" id="password" class="form-control" placeholder="Create password" required>
           </div>
 
           <button type="submit" class="btn btn-brown w-100">Register</button>
@@ -82,7 +82,6 @@
         </form>
 
       </div>
-
     </div>
   </div>
 
@@ -92,46 +91,56 @@
 document.getElementById("registerForm").addEventListener("submit", function(event){
     event.preventDefault();
 
-    let fullname = document.getElementById("fullname").value.trim();
-    let email = document.getElementById("email").value.trim();
-    let username = document.getElementById("username").value.trim();
-    let password = document.getElementById("password").value.trim();
+    const fullname = document.getElementById("fullname").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
 
     const alertBox = document.getElementById("alert-box");
     alertBox.innerHTML = "";
 
-    // Check empty fields (fixed logic)
-    if (fullname === "" || email === "" || username === "" || password === "") {
+    // Empty field validation
+    if (!fullname || !email || !username || !password) {
         alertBox.innerHTML =
             "<div class='alert alert-danger text-center'>Please fill in all fields.</div>";
         return;
     }
 
-    // Check email contains '@'
-    if (!email.includes("@")) {
+    // Better email format check
+    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/i;
+    if (!emailPattern.test(email)) {
         alertBox.innerHTML =
-            "<div class='alert alert-danger text-center'>Email must contain @.</div>";
+            "<div class='alert alert-danger text-center'>Please enter a valid email address.</div>";
         return;
     }
 
-    // Load users
+    // Password strength check
+    if (password.length < 6) {
+        alertBox.innerHTML =
+            "<div class='alert alert-danger text-center'>Password must be at least 6 characters.</div>";
+        return;
+    }
+
+    // Load existing users
     let users = JSON.parse(localStorage.getItem("acthersUsers")) || [];
 
-    // Check if username already exists
-    if (users.find(u => u.username === username)) {
+    // Check duplicate username (case-insensitive)
+    const exists = users.some(u => u.username.toLowerCase() === username.toLowerCase());
+    if (exists) {
         alertBox.innerHTML =
-            "<div class='alert alert-danger text-center'>Username already exists!</div>";
+            "<div class='alert alert-danger text-center'>Username already exists.</div>";
         return;
     }
 
-    // Save user
-    users.push({ fullname: fullname, email: email, username: username, password: password });
+    // Save new user
+    users.push({ fullname, email, username, password });
     localStorage.setItem("acthersUsers", JSON.stringify(users));
 
-    // Success message then redirect
+    // Success message
     alertBox.innerHTML =
         "<div class='alert alert-success text-center'>Registration successful! Redirecting to login...</div>";
 
+    // Redirect
     setTimeout(() => {
         window.location.href = "index.html";
     }, 1500);
