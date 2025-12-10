@@ -100,8 +100,8 @@ document.getElementById("registerForm").addEventListener("submit", function(even
     const alertBox = document.getElementById("alert-box");
     alertBox.innerHTML = "";
 
-    // Check empty fields
-    if (fullname === "" || email === "" || phone === "" || username === "" || password === "") {
+    // Check empty fields (fixed logic)
+    if (fullname === "" || email === "" || username === "" || password === "") {
         alertBox.innerHTML =
             "<div class='alert alert-danger text-center'>Please fill in all fields.</div>";
         return;
@@ -125,7 +125,7 @@ document.getElementById("registerForm").addEventListener("submit", function(even
     }
 
     // Save user
-    users.push({ fullname: fullname, email: email, phone: phone, username: username, password: password });
+    users.push({ fullname: fullname, email: email, username: username, password: password });
     localStorage.setItem("acthersUsers", JSON.stringify(users));
 
     // Success message then redirect
