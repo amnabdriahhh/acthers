@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Books List</title>
+     <link rel="icon" type="image/png" href="images/logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #F5EDE2;
+        }
+        
+        .navbar {
+            background-color: #6D4C41 !important; 
+            padding: 12px 0;
+        }
+
+        .navbar-brand {
+            color: white !important;
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+
+        /* navigation link hover */
+        .navbar-nav .nav-link {
+            color: white !important;
+            margin: 0 10px;
+            font-size: 1.1rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        /* underline slide animation */
+        .navbar-nav .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 0%;
+            height: 2px;
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .navbar-nav .nav-link.active::after {
+            width: 100%;
+        }
+
+        .logo-img {
+         width: 100px;      
+         height: auto;
+        }
+        .section-title {
+            color: #6D4C41;
+            font-weight: bold;
+        }
+        .card-header {
+            background-color: #6D4C41;
+            color: white;
+        }
+        .btn-brown {
+            background-color: #6D4C41;
+            color: white;
+        }
+        .book-img {
+            width: 70px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+
+        <!-- Logo for mobile -->
+        <a class="navbar-brand mx-auto d-lg-none" href="#">
+            <img src="images/logo.png" alt="acthers logo" class="logo-img">
+        </a>
+
+        <!-- Hamburger menu -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavBooks"
+            aria-controls="navbarNavBooks" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+        </button>
+
+        <!-- Links and logo for large screens -->
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNavBooks">
+            <a class="navbar-brand d-none d-lg-block me-4" href="#">
+                <img src="images/logo.png" alt="acthers logo" class="logo-img">
+            </a>
+
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link active" href="books.html">Books</a></li>
+                <li class="nav-item"><a class="nav-link" href="members.html">Members</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html">Logout</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+
+<div class="container mt-4">
+    <h2 class="section-title mb-3">Books List</h2>
+
+    <!-- Filter -->
+    <div class="d-flex align-items-center gap-2 mb-3 flex-wrap">
+        <select class="form-select" id="genreFilter" style="max-width:250px;">
+            <option value="">Filter by Genre</option>
+            <option>Fantasy</option>
+            <option>Romance</option>
+            <option>Thriller</option>
+            <option>Horror</option>
+            <option>Mystery</option>
+            <option>Adventure</option>
+            <option>Dystopian</option>
+            <option>Action</option>
+            <option>Education</option>
+            <option>Religion</option>
+        </select>
+    </div>
+
+    <!-- Book Table -->
+    <div class="card mb-4">
+        <div class="card-header">Available Books</div>
+        <div class="card-body">
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Image</th>
+                    <th>Book Title</th>
+                    <th>Author</th>
+                    <th>Genre</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><img src="images/romance1.jpg" class="book-img"></td>
+                    <td>All Your Perfects</td>
+                    <td>Colleen Hoover</td>
+                    <td>Romance</td>
+                    <td><button class="btn btn-success btn-sm">Available</button></td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td><img src="images/adventure1.jpg" class="book-img"></td>
+                    <td>Alanna: The First Adventure</td>
+                    <td>Tamora Pierce</td>
+                    <td>Adventure</td>
+                    <td><button class="btn btn-danger btn-sm">Borrowed</button></td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td><img src="images/horror1.jpg" class="book-img"></td>
+                    <td>Anna Dressed in Blood</td>
+                    <td>Kendare Blake</td>
+                    <td>Horror</td>
+                    <td><button class="btn btn-success btn-sm">Available</button></td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td><img src="images/horror2.jpg" class="book-img"></td>
+                    <td>Bird Box</td>
+                    <td>Josh Malerman</td>
+                    <td>Horror</td>
+                    <td><button class="btn btn-success btn-sm">Available</button></td>
+                </tr>
+
+                <tr>
+                    <td>5</td>
+                    <td><img src="images/romance2.jpg" class="book-img"></td>
+                    <td>Binding 13</td>
+                    <td>Chloe Walsh</td>
+                    <td>Romance</td>
+                    <td><button class="btn btn-success btn-sm">Available</button></td>
+                </tr>
+
+                <tr>
+                    <td>6</td>
+                    <td><img src="images/religion1.jpg" class="book-img"></td>
+                    <td>In the Footsteps of the Prophet</td>
+                    <td>Tariq Ramadan</td>
+                    <td>Religion</td>
+                    <td><button class="btn btn-success btn-sm">Available</button></td>
+                </tr>
+
+                <tr>
+                    <td>7</td>
+                    <td><img src="images/children1.jpg" class="book-img"></td>
+                    <td>Charlotte’s Web</td>
+                    <td>E.B. White</td>
+                    <td>Children</td>
+                    <td><button class="btn btn-success btn-sm">Available</button></td>
+                </tr>
+
+                <tr>
+                    <td>8</td>
+                    <td><img src="images/dystopian2.jpg" class="book-img"></td>
+                    <td>Divergent</td>
+                    <td>Veronica Roth</td>
+                    <td>Dystopian</td>
+                    <td><button class="btn btn-success btn-sm">Available</button></td>
+                </tr>
+
+                <tr>
+                    <td>9</td>
+                    <td><img src="images/fantasy1.png" class="book-img"></td>
+                    <td>Harry Potter and the Sorcerer’s Stone</td>
+                    <td>J.K. Rowling</td>
+                    <td>Fantasy</td>
+                    <td><button class="btn btn-success btn-sm">Available</button></td>
+                </tr>
+
+                <tr>
+                    <td>10</td>
+                    <td><img src="images/action1.png" class="book-img"></td>
+                    <td>Hunger Games</td>
+                    <td>Suzanne Collins</td>
+                    <td>Action</td>
+                    <td><button class="btn btn-success btn-sm">Available</button></td>
+                </tr>
+
+                <tr>
+                    <td>11</td>
+                    <td><img src="images/thriller2.jpg" class="book-img"></td>
+                    <td>Legend</td>
+                    <td>Marie Lu</td>
+                    <td>Thriller</td>
+                    <td><button class="btn btn-danger btn-sm">Borrowed</button></td>
+                </tr>
+
+                <tr>
+                    <td>12</td>
+                    <td><img src="images/thriller1.jpg" class="book-img"></td>
+                    <td>Lock Every Door</td>
+                    <td>Riley Sager</td>
+                    <td>Thriller</td>
+                    <td><button class="btn btn-danger btn-sm">Borrowed</button></td>
+                </tr>
+
+                <tr>
+                    <td>13</td>
+                    <td><img src="images/children2.jpg" class="book-img"></td>
+                    <td>Matilda</td>
+                    <td>Roald Dahl</td>
+                    <td>Children</td>
+                    <td><button class="btn btn-success btn-sm">Available</button></td>
+                </tr>
+
+                <tr>
+                    <td>14</td>
+                    <td><img src="images/adventure2.jpg" class="book-img"></td>
+                    <td>Percy Jackson: The Lightning Thief</td>
+                    <td>Rick Riordan</td>
+                    <td>Adventure</td>
+                    <td><button class="btn btn-danger btn-sm">Borrowed</button></td>
+                </tr>
+
+                <tr>
+                    <td>15</td>
+                    <td><img src="images/religion1.jpg" class="book-img"></td>
+                    <td>Reclaim Your Heart</td>
+                    <td>Yasmin Mogahed</td>
+                    <td>Religion</td>
+                    <td><button class="btn btn-danger btn-sm">Borrowed</button></td>
+                </tr>
+
+                <tr>
+                    <td>16</td>
+                    <td><img src="images/dystopian1.jpg" class="book-img"></td>
+                    <td>Shatter Me</td>
+                    <td>Tahereh Mafi</td>
+                    <td>Dystopian</td>
+                    <td><button class="btn btn-success btn-sm">Available</button></td>
+                </tr>
+
+                <tr>
+                    <td>17</td>
+                    <td><img src="images/action2.png" class="book-img"></td>
+                    <td>Steelheart</td>
+                    <td>Brandon Sanderson</td>
+                    <td>Action</td>
+                    <td><button class="btn btn-success btn-sm">Available</button></td>
+                </tr>
+
+                <tr>
+                    <td>18</td>
+                    <td><img src="images/mystery2.jpg" class="book-img"></td>
+                    <td>The Housemaid</td>
+                    <td>Freida McFadden</td>
+                    <td>Mystery</td>
+                    <td><button class="btn btn-success btn-sm">Available</button></td>
+                </tr>
+
+                <tr>
+                    <td>19</td>
+                    <td><img src="images/mystery1.jpg" class="book-img"></td>
+                    <td>Murder on the Orient Express</td>
+                    <td>Agatha Christie</td>
+                    <td>Mystery</td>
+                    <td><button class="btn btn-danger btn-sm">Borrowed</button></td>
+                </tr>
+
+                <tr>
+                    <td>20</td>
+                    <td><img src="images/fantasy2.jpg" class="book-img"></td>
+                    <td>The Lion, the Witch and the Wardrobe</td>
+                    <td>C.S. Lewis</td>
+                    <td>Fantasy</td>
+                    <td><button class="btn btn-danger btn-sm">Borrowed</button></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Book Request -->
+    <div class="card">
+        <div class="card-header">Request New Book</div>
+        <div class="card-body">
+            <form>
+
+                <div class="mb-3">
+                    <label class="form-label">Book Title</label>
+                    <input type="text" class="form-control" placeholder="Enter Title" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Author</label>
+                    <input type="text" class="form-control" placeholder="Enter Author Name" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Category</label>
+                    <input type="text" class="form-control" placeholder="Enter Genre" required>
+                </div>
+
+                <button class="btn btn-brown">Request Book</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<footer class="text-center p-3 mt-4" style="background:#6D4C41;color:white;">
+    © 2025 Acthers | All Rights Reserved
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Script for filter -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const filterSelect = document.getElementById("genreFilter");
+    const rows = document.querySelectorAll("tbody tr");
+
+    function filterBooks() {
+        const selectedGenre = filterSelect.value.toLowerCase();
+
+        rows.forEach(row => {
+            const category = row.querySelector("td:nth-child(5)").innerText.toLowerCase();
+
+            row.style.display = (selectedGenre === "" || category === selectedGenre) ? "" : "none";
+        });
+    }
+
+    filterSelect.addEventListener("change", filterBooks);
+});
+</script>
+
+</body>
+</html>

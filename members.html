@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Members</title>
+     <link rel="icon" type="image/png" href="images/logo.png">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #F5EDE2; 
+            font-family: Arial, sans-serif;
+        }
+
+        
+        .navbar {
+            background-color: #6D4C41 !important; 
+            padding: 12px 0;
+        }
+
+        .navbar-brand {
+            color: white !important;
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+
+       
+        .navbar-nav .nav-link {
+            color: white !important;
+            margin: 0 10px;
+            font-size: 1.1rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        /* underline slide animation */
+        .navbar-nav .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 0%;
+            height: 2px;
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .navbar-nav .nav-link.active::after {
+            width: 100%;
+        }
+
+        .section-title {
+            color: #6D4C41;
+            font-weight: bold;
+        }
+        .logo-img {
+         width: 100px;      
+         height: auto;
+        }
+        .member-box {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+            color: #6D4C41;
+            font-weight: bold;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .member-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* footer centered properly with hover effect */
+        .site-footer {
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+            background-color: #6D4C41;
+            color: white;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .site-footer:hover {
+            background-color: #5c3d33; 
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+
+        <!-- Logo for mobile -->
+        <a class="navbar-brand mx-auto d-lg-none" href="#">
+            <img src="images/logo.png" alt="acthers logo" class="logo-img">
+        </a>
+
+        <!-- Hamburger menu -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavBooks"
+            aria-controls="navbarNavBooks" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+        </button>
+
+        <!-- Links and logo for large screens -->
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNavBooks">
+            <a class="navbar-brand d-none d-lg-block me-4" href="#">
+                <img src="images/logo.png" alt="acthers logo" class="logo-img">
+            </a>
+
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="books.html">Books</a></li>
+                <li class="nav-item"><a class="nav-link active" href="members.html">Members</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html">Logout</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+
+   
+    <div class="container mt-4">
+        <h2 class="section-title text-center mb-4">Library Members</h2>
+
+        <div class="container text-center">
+
+            <!-- row 1 -->
+            <div class="row justify-content-around">
+                <div class="col-md-4 member-box"><h4>Shannon Lynch</h4>shannon@gmail.com<br>0116209120</div>
+                <div class="col-md-4 member-box"><h4>Gerard Gibson</h4>gibsie@gmail.com<br>0114728320</div>
+            </div>
+
+            <!-- row 2 -->
+            <div class="row justify-content-between">
+                <div class="col-md-4 member-box"><h4>Phineas Smith</h4>finny@gmail.com<br>0188082000</div>
+                <div class="col-md-4 member-box"><h4>Kenji Kishimoto</h4>kenji@gmail.com<br>0162866445</div>
+            </div>
+
+            <!-- row 3 -->
+            <div class="row justify-content-evenly">
+                <div class="col-md-4 member-box"><h4>Aoife Molloy</h4>aoife@gmail.com<br>0116628475</div>
+                <div class="col-md-4 member-box"><h4>Sylvie Whitehouse</h4>syl@gmail.com<br>0182276550</div>
+            </div>
+
+            <!-- row 4 -->
+            <div class="row justify-content-around">
+                <div class="col-md-4 member-box"><h4>Johnny Kavanagh</h4>johnny@gmail.com<br>0119904737</div>
+                <div class="col-md-4 member-box"><h4>Autumn Davis</h4>autumn@gmail.com<br>0182008082</div>
+            </div>
+
+            <!-- row 5 -->
+            <div class="row justify-content-between">
+                <div class="col-md-4 member-box"><h4>Aaron Warner</h4>aaron@gmail.com<br>0100077700</div>
+                <div class="col-md-4 member-box"><h4>Joey Lynch</h4>joey@gmail.com<br>018446321</div>
+            </div>
+
+            <!-- row 6 -->
+            <div class="row justify-content-evenly">
+                <div class="col-md-4 member-box"><h4>Juliette Ferrars</h4>juliette@gmail.com<br>0164473382</div>
+                <div class="col-md-4 member-box"><h4>Nazeera Ibrahim</h4>naz@gmail.com<br>018238802</div>
+            </div>
+
+            <!-- row 7 -->
+            <div class="row justify-content-around">
+                <div class="col-md-4 member-box"><h4>Liam O'Connor</h4>liam@gmail.com<br>0112345678</div>
+                <div class="col-md-4 member-box"><h4>Emma Johansson</h4>emma@gmail.com<br>0123456789</div>
+            </div>
+
+            <!-- row 8 -->
+            <div class="row justify-content-between">
+                <div class="col-md-4 member-box"><h4>Noah Smith</h4>noah@gmail.com<br>0134567890</div>
+                <div class="col-md-4 member-box"><h4>Isabella Brown</h4>isabella@gmail.com<br>0145678901</div>
+            </div>
+
+            <!-- row 9 -->
+            <div class="row justify-content-evenly">
+                <div class="col-md-4 member-box"><h4>Oliver Wilson</h4>oliver@gmail.com<br>0156789012</div>
+                <div class="col-md-4 member-box"><h4>Charlotte Taylor</h4>charlotte@gmail.com<br>0167890123</div>
+            </div>
+
+            <!-- row 10 -->
+            <div class="row justify-content-around">
+                <div class="col-md-4 member-box"><h4>Elijah Martinez</h4>elijah@gmail.com<br>0178901234</div>
+                <div class="col-md-4 member-box"><h4>Ava Anderson</h4>ava@gmail.com<br>0189012345</div>
+            </div>
+
+            <!-- row 11 -->
+            <div class="row justify-content-between">
+                <div class="col-md-4 member-box"><h4>James Thomas</h4>james@gmail.com<br>0190123456</div>
+                <div class="col-md-4 member-box"><h4>Mia Robinson</h4>mia@gmail.com<br>0101234567</div>
+            </div>
+
+            <!-- row 12 -->
+            <div class="row justify-content-evenly">
+                <div class="col-md-4 member-box"><h4>Benjamin Lewis</h4>benjamin@gmail.com<br>0112348901</div>
+                <div class="col-md-4 member-box"><h4>Harper Walker</h4>harper@gmail.com<br>0123459012</div>
+            </div>
+
+            <!-- row 13 -->
+            <div class="row justify-content-around">
+                <div class="col-md-4 member-box"><h4>Lucas Hall</h4>lucas@gmail.com<br>0134560123</div>
+                <div class="col-md-4 member-box"><h4>Evelyn Young</h4>evelyn@gmail.com<br>0145671234</div>
+            </div>
+
+            <!-- row 14 -->
+            <div class="row justify-content-between">
+                <div class="col-md-4 member-box"><h4>Mason Hernandez</h4>mason@gmail.com<br>0156782345</div>
+                <div class="col-md-4 member-box"><h4>Abigail King</h4>abigail@gmail.com<br>0167893456</div>
+            </div>
+
+            <!-- row 15 -->
+            <div class="row justify-content-evenly">
+                <div class="col-md-4 member-box"><h4>Ethan Wright</h4>ethan@gmail.com<br>0178904567</div>
+                <div class="col-md-4 member-box"><h4>Emily Scott</h4>emily@gmail.com<br>0189015678</div>
+            </div>
+        </div>
+        </div>
+
+    <footer class="site-footer">
+        © 2025 Acthers | All Rights Reserved
+    </footer>
+
+</body>
+</html>

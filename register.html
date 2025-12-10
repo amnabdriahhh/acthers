@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+        background-color: #6D4C41;
+        font-family: Arial, sans-serif;
+    }
+    .register-box {
+        background: #F5EDE2;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+        border-top: 5px solid #4E342E;
+    }
+    .logo-img {
+        width: 180px;
+        height: auto;
+        display: block;
+        margin: 0 auto 20px;
+    }
+    .title {
+        color: #F5EDE2;
+        font-weight: bold;
+    }
+    .btn-brown {
+        background-color: #4E342E;
+        color: white;
+    }
+    .btn-brown:hover {
+        background-color: #3E2723;
+        color: white;
+    }
+  </style>
+</head>
+
+<body>
+<div class="container mt-5">
+
+  <h2 class="text-center title mb-4">Register Account</h2>
+
+  <img src="images/logo.png" alt="acthers logo" class="logo-img">
+
+  <!-- Alert Box -->
+  <div id="alert-box"></div>
+
+  <div class="row">
+    <div class="col-md-5 mx-auto">
+
+      <div class="register-box">
+
+        <form id="registerForm">
+
+          <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input type="text" id="fullname" class="form-control" placeholder="Enter full name">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" id="email" class="form-control" placeholder="Enter email (must include @)">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Username</label>
+            <input type="text" id="username" class="form-control" placeholder="Create username">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input type="password" id="password" class="form-control" placeholder="Create password">
+          </div>
+
+          <button type="submit" class="btn btn-brown w-100">Register</button>
+
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+document.getElementById("registerForm").addEventListener("submit", function(event){
+    event.preventDefault();
+
+    let fullname = document.getElementById("fullname").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let username = document.getElementById("username").value.trim();
+    let password = document.getElementById("password").value.trim();
+
+    const alertBox = document.getElementById("alert-box");
+    alertBox.innerHTML = "";
+
+    // Check empty fields
+    if (fullname === "" || email === "" || phone === "" || username === "" || password === "") {
+        alertBox.innerHTML =
+            "<div class='alert alert-danger text-center'>Please fill in all fields.</div>";
+        return;
+    }
+
+    // Check email contains '@'
+    if (!email.includes("@")) {
+        alertBox.innerHTML =
+            "<div class='alert alert-danger text-center'>Email must contain @.</div>";
+        return;
+    }
+
+    // Load users
+    let users = JSON.parse(localStorage.getItem("acthersUsers")) || [];
+
+    // Check if username already exists
+    if (users.find(u => u.username === username)) {
+        alertBox.innerHTML =
+            "<div class='alert alert-danger text-center'>Username already exists!</div>";
+        return;
+    }
+
+    // Save user
+    users.push({ fullname: fullname, email: email, phone: phone, username: username, password: password });
+    localStorage.setItem("acthersUsers", JSON.stringify(users));
+
+    // Success message then redirect
+    alertBox.innerHTML =
+        "<div class='alert alert-success text-center'>Registration successful! Redirecting to login...</div>";
+
+    setTimeout(() => {
+        window.location.href = "index.html";
+    }, 1500);
+});
+</script>
+
+</body>
+</html>

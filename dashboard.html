@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Library Dashboard</title>
+
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #F5EDE2; 
+            font-family: Arial, sans-serif;
+        }
+
+      /*Navigation Bar*/
+        .navbar {
+            background-color: #6D4C41 !important; 
+            padding: 12px 0;
+        }
+
+        .navbar-brand {
+            color: white !important;
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+
+        .navbar-nav .nav-link {
+            color: white !important;
+            margin: 0 10px;
+            font-size: 1.1rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 0%;
+            height: 2px;
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover::after,
+        .navbar-nav .nav-link.active::after {
+            width: 100%;
+        }
+
+        .logo-img {
+            width: 100px;      
+            height: auto;
+        }
+
+        /* Cards */
+        .card {
+            border: none;
+            border-radius: 10px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 15px rgba(0,0,0,0.2);
+        }
+
+        .card-header {
+            background-color: #6D4C41;
+            color: white;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .section-title {
+            color: #6D4C41;
+            font-weight: bold;
+        }
+
+        #chart-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        .site-footer {
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+            background-color: #6D4C41;
+            color: white;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .site-footer:hover {
+            background-color: #5c3d33;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+
+    <!-- Logo for mobile -->
+    <a class="navbar-brand mx-auto d-lg-none" href="#">
+      <img src="images/logo.png" alt="acthers logo" class="logo-img">
+    </a>
+
+    <!-- Hamburger menu -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+    </button>
+
+    <!-- Links and logo for large screens -->
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <a class="navbar-brand d-none d-lg-block me-4" href="#">
+        <img src="images/logo.png" alt="acthers logo" class="logo-img">
+      </a>
+
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link active" href="dashboard.html">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" href="books.html">Books</a></li>
+        <li class="nav-item"><a class="nav-link" href="members.html">Members</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html">Logout</a></li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+<div class="container mt-4">
+
+    <h2 class="section-title mb-4">Dashboard Overview</h2>
+
+    <!-- Info Cards -->
+    <div class="row">
+
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-header">Total Books</div>
+                <div class="card-body"><h4>120</h4></div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-header">Members</div>
+                <div class="card-body"><h4>45</h4></div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-header">Borrowed Books</div>
+                <div class="card-body"><h4>32</h4></div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-header">Top Genre</div>
+                <div class="card-body"><h4>Romance</h4></div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-header">Most Active Member</div>
+                <div class="card-body"><h4>Autumn Davis</h4></div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-header">Overdue Books</div>
+                <div class="card-body"><h4>5</h4></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Chart Placeholder -->
+    <h4 class="section-title mt-4">Book Category Chart</h4>
+    <div id="chart-box"></div>
+
+</div>
+
+<footer class="site-footer">
+  © 2025 Acthers | All Rights Reserved
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+
+<script>
+  function createChartCanvas(parent) {
+    const canvas = document.createElement('canvas');
+    canvas.style.marginBottom = '25px';
+    canvas.style.maxHeight = '250px';
+    parent.appendChild(canvas);
+    return canvas;
+  }
+
+  const chartBox = document.getElementById('chart-box');
+
+  // 1. Bar Chart
+  const ctxBooks = createChartCanvas(chartBox);
+  new Chart(ctxBooks, {
+    type: 'bar',
+    data: {
+      labels: ['Romance', 'Fantasy', 'Action', 'Adventure', 'Horror', 'Mystery', 'Religion', 'Children', 'Dystopian', 'Thriller'],
+      datasets: [{ label: 'Total Borrowed', data: [11,6,7,5,6,5,4,6,3,7], backgroundColor: '#6D4C41' }]
+    },
+    options: { responsive: true, plugins: { legend: { display: false }, title: { display: true, text: 'Monthly Borrowed Books per Genre' } }, scales: { y: { beginAtZero: true } } }
+  });
+
+  // 2. Line Chart
+  const ctxMonthly = createChartCanvas(chartBox);
+  new Chart(ctxMonthly, {
+    type: 'line',
+    data: {
+      labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+      datasets: [{ label:'Borrowed Books', data:[25,28,32,30,35,29,40,38,22,35,44,42,43], borderColor:'#FF7043', backgroundColor:'rgba(255,112,67,0.2)', fill:true, tension:0.4 }]
+    },
+    options: { responsive:true, plugins:{ title:{ display:true, text:'Monthly Borrowed Books' } }, scales:{ y:{ beginAtZero:true } } }
+  });
+
+  // 3. Doughnut Chart
+  const ctxMembers = createChartCanvas(chartBox);
+  new Chart(ctxMembers, {
+    type:'doughnut',
+    data: {
+      labels:['1-3 Days','4-7 Days','8-14 Days'],
+      datasets:[{ label:'Members', data:[50,30,20], backgroundColor:['#8D6E63','#A1887F','#D7CCC8'] }]
+    },
+    options:{ responsive:true, plugins:{ title:{ display:true, text:'Borrowing Duration Distribution (%)' }, legend:{ position:'bottom' } } }
+  });
+</script>
+
+</body>
+</html>
